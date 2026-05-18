@@ -72,13 +72,17 @@ def correlation_matrix(df, cols):
 # ==============================================================================
 # DATA LOADING
 # ==============================================================================
-CSV_PATH = r"C:\Users\tbardakc1\OneDrive - Philip Morris International\Desktop\bist_stock_data.csv"
-if not os.path.exists(CSV_PATH):
-    CSV_PATH = "bist_stock_data.csv"
+import streamlit as st
 
-print("📥 Veri yükleniyor...")
-df_raw = pd.read_csv(CSV_PATH)
+uploaded = st.file_uploader("CSV yükle", type="csv")
+
+if uploaded is None:
+    st.warning("Lütfen CSV dosyasını yükleyin")
+    st.stop()
+
+df_raw = pd.read_csv(uploaded)
 df_raw.columns = df_raw.columns.str.strip()
+
 if 'Date' in df_raw.columns:
     df_raw['Date'] = pd.to_datetime(df_raw['Date'])
 
