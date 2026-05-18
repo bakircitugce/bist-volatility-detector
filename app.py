@@ -1,3 +1,12 @@
+import streamlit as st
+
+run_model = st.button("🚀 Modeli Çalıştır")
+
+if not run_model:
+    st.info("Modeli çalıştırmak için butona tıklayın")
+    st.stop()
+
+
 import pandas as pd
 import numpy as np
 import os
