@@ -3,8 +3,4 @@ pandas
 numpy
 scikit-learn
 lightgbm
-xgboost
-catboost
 plotly
-matplotlib
-seaborn
